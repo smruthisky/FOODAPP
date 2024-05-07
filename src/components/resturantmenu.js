@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect ,useState } from "react";
 import Skeleton from "./shimmerui";
 import Fooditems from "./Fooditems";
+import { imgurl } from "../../contants";
 const Resturantmenu=()=>{
     const [Resinfo ,setResinfo]=useState(null);
     const [Menu,setMenu]=useState(null);
@@ -41,10 +42,18 @@ const Resturantmenu=()=>{
    
     return(!Resinfo)?(<Skeleton/>):(
         <div>
-            <h1>Resturant id:{Resinfo.id}</h1>
-            <h1>{Resinfo.name}</h1>
-            <h3>{Resinfo.areaName},{Resinfo.city}</h3>
-            <h3>{Resinfo.avgRating} stars</h3>
+            {/* <h1>Resturant id:{Resinfo.id}</h1> */}
+            <div className="resinfo">
+            <img className="resimg" src={imgurl+ Resinfo.cloudinaryImageId}/> 
+            <div className="resdata">
+            <h1 className="resname">{Resinfo.name}</h1>
+            <h3 className="address">{Resinfo.areaName},{Resinfo.city}</h3>
+            <h3 className="resrating">{Resinfo.avgRating} stars</h3>
+            </div>
+          
+
+            </div>
+            
 
            <div>{displayMenu()}</div>
         </div>
