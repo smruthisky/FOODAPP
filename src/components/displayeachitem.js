@@ -13,11 +13,7 @@ const DisplayMenu=({itemcards})=>{
                 </div>
                 </div>
                   <img className="menuimage" src={imgurl+ i.card.info.imageId}/> 
-                
                   
-             
-             
-             
              </div> 
          )
          
