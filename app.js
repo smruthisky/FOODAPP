@@ -9,7 +9,7 @@ import About from "./src/components/About.js";
 import Error from "./src/components/Error.js";
 import Contact from "./src/components/contactus.js";
 import Resturantmenu from "./src/components/resturantmenu.js";
-
+import Profile from "./src/components/Profile.js";
 //this app.js is a module not a normal js file so we need to specify that in script tag
 // const heading1=React.createElement("h1" ,{
 //         id:"title",
@@ -76,6 +76,13 @@ const appRouter=createBrowserRouter([
             {
                 path:"/about",
                 element:<About/>,
+                children:[
+                    {
+                       path:"profile",  // i wont give / here , if i give it means to route from route ,but we want this profile to be another route in aboutus page 
+                       element: <Profile/>  // for this i need to create outlet in its parent component , i.e in about.js
+                    },
+
+                ],
             },
             {
                 path:"/",
