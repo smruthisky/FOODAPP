@@ -7,7 +7,7 @@ const Card=({cloudinaryImageId,name,cuisines,avgRating})=>{
         <h2 className="resname">{name} </h2>
         <h4 className="cuisines">{cuisines.join(', ')}</h4>
         
-        <h4>{avgRating} stars</h4>
+        <h4 className="cardrating">{avgRating} stars</h4>
         </div>
     
         </div>

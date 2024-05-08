@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import logo from '../images/logo-no-background.png';
 const loggedInUser=()=>{
 
     return false;
@@ -9,7 +10,7 @@ const loggedInUser=()=>{
 
 export const Title=() =>(
     <a href="/">
-    <img className="logo" src="https://i.pinimg.com/originals/39/96/57/39965743eb30634afdc5906133e19740.png"
+    <img className="logo" src={logo}
     />
     </a>
 );
@@ -22,7 +23,7 @@ const Header= ()=>
         <div className="header">
           <Title/>
            <div className="nav-items">
-            <ul>
+            <ul className="nav">
              <li><Link to="/">Home</Link></li>
              <li><Link to="/about">About us</Link></li>
              <li><Link to="/contact">Contact</Link></li>

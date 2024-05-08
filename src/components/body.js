@@ -64,7 +64,7 @@ import { Link } from "react-router-dom";
         <>
           <div className="search-container"> 
             
-                <input type="text" className="search-input" placeholder="Search" 
+                <input type="text" className="search-input" placeholder="Type something to search.." 
                value={searchInput}
                 onChange={(e)=>{
                setSearchInput(e.target.value);
