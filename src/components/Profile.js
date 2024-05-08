@@ -1,7 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ProfileFunctionalComp=(props)=>{
     const [count ,setcount]=useState(0);
+    useEffect(()=>{
+      const timer=setInterval(()=>{
+        console.log("hi");
+      },1000);
+      return ()=>{
+         clearInterval(timer);
+         console.log("useeffect return");
+      };
+    })
    return(
     <>
       <h1>Using functional component</h1>
