@@ -1,12 +1,12 @@
 import { imgurl } from "../../contants";
 const DisplayMenu=({itemcards})=>{
-    console.log(itemcards);
+    // console.log(itemcards);
     // return null;
     
     return(
         <>
-         {itemcards.map(i=>
-             <div className="menu">
+         {itemcards.map((i,index)=>
+             <div className="menu" key={index}>
                 <div className="text" >
                 <div className="name">{i.card.info.name}
                  

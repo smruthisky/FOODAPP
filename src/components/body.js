@@ -3,21 +3,14 @@ import Card from "./cards.js";
 import { useEffect, useState  } from "react";
 import Skeleton from "./shimmerui.js";
 import { Link } from "react-router-dom";
+import { filtersearch } from "../utils/helper.js";
 
- function filtersearch(searchInput,resturants){
-      const filteredres=resturants.filter((resturant)=>
-      
-        resturant?.info?.name?.toLowerCase()?.includes(searchInput.toLowerCase())
-
-      );
-     
-      return filteredres;
-
- };
  const Body=()=>{
     const [allresturants , setAllResturant]=useState("");
     const [filteredresturants , setFilteredResturant]=useState("");
     const [searchInput ,setSearchInput] =useState("");
+    
+
     useEffect(()=>{
      getResturants();
     },[])  ;
