@@ -4,6 +4,7 @@ import { useEffect, useState  } from "react";
 import Skeleton from "./shimmerui.js";
 import { Link } from "react-router-dom";
 import { filtersearch } from "../utils/helper.js";
+import useOnline from "../utils/useOnline.js";
 
  const Body=()=>{
     const [allresturants , setAllResturant]=useState("");
@@ -38,6 +39,12 @@ import { filtersearch } from "../utils/helper.js";
     catch(error){
       console.error("Error fetching restaurant data:", error.message);
     }
+    }
+    const isOnline =useOnline();
+
+    if(!isOnline){
+      return ( <h1>You are offline check your internet!</h1>)
+
     }
     console.log("render");
      

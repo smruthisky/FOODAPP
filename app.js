@@ -1,8 +1,7 @@
-import React from "react";
+import React, { lazy,Suspense } from "react";
 import  ReactDOM  from "react-dom/client";
 import Header from "./src/components/header.js";
-import { Title } from "./src/components/header.js";
-import Footer from "./src/components/Footer.js";
+
 import Body from "./src/components/body.js";
 import { createBrowserRouter ,RouterProvider ,Outlet } from "react-router-dom";
 import About from "./src/components/About.js";
@@ -10,6 +9,8 @@ import Error from "./src/components/Error.js";
 import Contact from "./src/components/contactus.js";
 import Resturantmenu from "./src/components/resturantmenu.js";
 import Profile from "./src/components/Profile.js";
+import Loading from "./src/components/Loading.js";
+import Footer from "./src/components/Footer.js"
 //this app.js is a module not a normal js file so we need to specify that in script tag
 // const heading1=React.createElement("h1" ,{
 //         id:"title",
@@ -54,9 +55,11 @@ import Profile from "./src/components/Profile.js";
 
 
 
-
+const Instamart= lazy(()=> import('./src/components/instamart.js'));
 
 const AppLayout=()=>{
+    //dont do lazy load inside any component like here , caz then again after each render it might load we dont want that
+    
     return(
         <>
          <Header/>
@@ -95,6 +98,10 @@ const appRouter=createBrowserRouter([
             {
                 path:"/resturant/:id",
                 element:<Resturantmenu/>
+            },
+            {
+                path:"/instamart",
+                element:<Suspense fallback={<Loading/>} ><Instamart/></Suspense>,
             }
         ]
     },
