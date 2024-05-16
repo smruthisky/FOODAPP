@@ -16,9 +16,9 @@ const Resturantmenu=()=>{
       
    
     return(!Resinfo)?(<Skeleton/>):(
-        <div className="bg-slate-100">
+        <div className="bg-slate-100  ">
             {/* <h1>Resturant id:{Resinfo.id}</h1> */}
-            <div className="resinfo flex ml-60 ">
+            <div className="resinfo  ml-60 ">
             <img className="resimg w-52 rounded-sm" src={imgurl+ Resinfo.cloudinaryImageId}/> 
             <div className="resdata ml-5   ">
             <h1 className="resname font-sans font-semibold text-4xl text-orange-600">{Resinfo.name}</h1>

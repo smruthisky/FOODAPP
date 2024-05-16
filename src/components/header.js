@@ -35,9 +35,9 @@ const Header= ()=>
            
            </div>
      
-           {isLoggedIn ?(<button onClick={()=>setLoggedIn(false)}>Logout</button>):
+           {isLoggedIn ?(<button onClick={()=>setLoggedIn(false)}className="px-2 ml-24 text-orange-700  bg-orange-200 rounded-md h-9 mt-3 font-semibold hover:text-black">Logout</button>):
            
-           (<button onClick={()=>setLoggedIn(true)} className="px-2 ml-32 text-orange-700  bg-orange-200 rounded-md h-9 mt-3 font-semibold hover:text-black">Login</button>)}
+           (<button onClick={()=>setLoggedIn(true)} className="px-2 ml-24 text-orange-700  bg-orange-200 rounded-md h-9 mt-3 font-semibold hover:text-black">Login</button>)}
            
            
           

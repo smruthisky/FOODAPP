@@ -52,7 +52,7 @@ import {userContext} from "../utils/useContext.js";
 
     
     return allresturants.length ===0 ?( 
-      <div className="allskeleton">
+      <div className="allskeleton  flex flex-wrap ml-8">
              {Array(20).fill(null).map((e, index)=>(
               <Skeleton key={index}/>
              ))} 
