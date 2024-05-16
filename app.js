@@ -1,4 +1,4 @@
-import React, { lazy,Suspense } from "react";
+import React, { lazy,Suspense, useState } from "react";
 import  ReactDOM  from "react-dom/client";
 import Header from "./src/components/header.js";
 
@@ -11,6 +11,7 @@ import Resturantmenu from "./src/components/resturantmenu.js";
 import Profile from "./src/components/Profile.js";
 import Loading from "./src/components/Loading.js";
 import Footer from "./src/components/Footer.js"
+import {ThemeContext, userContext} from"./src/utils/useContext.js";
 //this app.js is a module not a normal js file so we need to specify that in script tag
 // const heading1=React.createElement("h1" ,{
 //         id:"title",
@@ -59,12 +60,28 @@ const Instamart= lazy(()=> import('./src/components/instamart.js'));
 
 const AppLayout=()=>{
     //dont do lazy load inside any component like here , caz then again after each render it might load we dont want that
-    
+    const [user,setUser]=useState({
+        name:"raju",
+        email:"raju23@gmail.com"
+    });
+    const [theme,setTheme]=useState('theme is overriden as dark');
     return(
         <>
-         <Header/>
+        {/* here we can override the data using provider */}
+        <userContext.Provider value={{
+            user:user,
+            setUser:setUser,
+        }} >
+        <ThemeContext.Provider value={theme}>
+
+        
+        <Header/>
         <Outlet/>
+        
+        
         <Footer/>
+        </ThemeContext.Provider>
+        </userContext.Provider>
         </>
        
     );

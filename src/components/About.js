@@ -3,6 +3,7 @@ import ProfileClasscomp from "./Profileclasscomp";
 import ProfileFunctionalComp from "./Profile";
 import { Component } from "react"; //sometimes they do this instead of using React.component
 
+import {userContext} from "../utils/useContext";
 class About extends Component{
 
    constructor(props){
@@ -20,6 +21,13 @@ class About extends Component{
       <div>
       <h1>HI This is about us</h1>
       {/* <Outlet/>  */}
+
+      {/* here we are using Context as a component beacuse we dont have hooks in class based components  */}
+      <userContext.Consumer > 
+        {/* {(value)=>console.log(value)} */}
+        {({user})=><h3 className="font-semibold pl-7">{user.name}- {user.email}</h3>}
+      </userContext.Consumer>
+
       <ProfileFunctionalComp name={"smruthi"}/>
       <ProfileClasscomp name={"jenny"}/>
         </div>

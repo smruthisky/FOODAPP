@@ -1,16 +1,17 @@
 import { itemlist } from "../../contants.js";
 import Card from "./cards.js";
-import { useEffect, useState  } from "react";
+import { useContext, useEffect, useState,  } from "react";
 import Skeleton from "./shimmerui.js";
 import { Link } from "react-router-dom";
 import { filtersearch } from "../utils/helper.js";
 import useOnline from "../utils/useOnline.js";
-
+import {userContext} from "../utils/useContext.js";
  const Body=()=>{
     const [allresturants , setAllResturant]=useState("");
     const [filteredresturants , setFilteredResturant]=useState("");
     const [searchInput ,setSearchInput] =useState("");
     
+    const {user,setUser}=useContext(userContext);
 
     useEffect(()=>{
      getResturants();
@@ -70,6 +71,24 @@ import useOnline from "../utils/useOnline.js";
             onChange={(e)=>{
            setSearchInput(e.target.value);
              }}
+          />
+          
+          <input type="text" value={user.name} className="border ml-2"
+           onChange={(e)=>{setUser({
+
+            name:e.target.value,
+          });
+            
+           }}
+          />
+            <input type="text" value={user.email} className="border ml-2"
+           onChange={(e)=>{setUser({
+
+            email:e.target.value, 
+          });
+            
+           }}
+           placeholder="Enter mailid"
           />
  <button className="search-btn px-4 bg-orange-200 rounded-md ml-3 h-9 text-orange-800 hover:text-black font-semibold" onClick={()=>{
     //need to filter data
