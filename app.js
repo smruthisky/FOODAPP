@@ -12,6 +12,9 @@ import Profile from "./src/components/Profile.js";
 import Loading from "./src/components/Loading.js";
 import Footer from "./src/components/Footer.js"
 import {ThemeContext, userContext} from"./src/utils/useContext.js";
+import { Provider } from "react-redux";
+import store from "./src/utils/store.js";
+import Cart from "./src/components/cart.js"
 //this app.js is a module not a normal js file so we need to specify that in script tag
 // const heading1=React.createElement("h1" ,{
 //         id:"title",
@@ -68,6 +71,8 @@ const AppLayout=()=>{
     return(
         <>
         {/* here we can override the data using provider */}
+        <Provider store={store}>
+
         <userContext.Provider value={{
             user:user,
             setUser:setUser,
@@ -82,6 +87,8 @@ const AppLayout=()=>{
         <Footer/>
         </ThemeContext.Provider>
         </userContext.Provider>
+        </Provider>
+
         </>
        
     );
@@ -119,7 +126,12 @@ const appRouter=createBrowserRouter([
             {
                 path:"/instamart",
                 element:<Suspense fallback={<Loading/>} ><Instamart/></Suspense>,
+            },
+            {
+                path:"/cart",
+                element:<Cart/>
             }
+
         ]
     },
     
