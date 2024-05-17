@@ -52,7 +52,7 @@ import {userContext} from "../utils/useContext.js";
 
     
     return allresturants.length ===0 ?( 
-      <div className="allskeleton  flex flex-wrap ml-8">
+      <div className="allskeleton  flex flex-wrap ml-8 mt-4 mr-2">
              {Array(20).fill(null).map((e, index)=>(
               <Skeleton key={index}/>
              ))} 
@@ -63,7 +63,7 @@ import {userContext} from "../utils/useContext.js";
     
         ) : ( 
         <>
-        <div className="body h-[1500px] mt-2 bg-gray-50">
+        <div className="body h-[1500px] mt-2 bg-gray-100">
         <div className="search-container"> 
             
             <input type="text" className="search-input ml-40 pl-2 text-gray-700 bg-slate-200 rounded-lg h-12 w-52" placeholder="Type something to search.." 

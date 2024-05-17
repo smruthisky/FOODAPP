@@ -2,7 +2,8 @@ import { useState,useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from '../images/logo-no-background.png';
 import {userContext} from "../utils/useContext";
-
+import {  useSelector } from "react-redux";
+import store from "../utils/store";
 
 export const Title=() =>(
     <a href="/">
@@ -14,7 +15,8 @@ export const Title=() =>(
 const Header= ()=>
 {
 
-    
+    const cartItems=useSelector(store=> store.cart.items);
+     console.log(cartItems)
     const[isLoggedIn ,setLoggedIn]=useState(false);
 
     const {user}=useContext(userContext);
@@ -29,8 +31,9 @@ const Header= ()=>
              <li className="px-4 text-orange-700 hover:text-black font-semibold"><Link to="/">Home</Link></li>
              <li className="px-4 text-orange-700 hover:text-black font-semibold" ><Link to="/about">About us</Link></li>
              <li className="px-4  text-orange-700 hover:text-black font-semibold"><Link to="/contact">Contact</Link></li>
-             <li className="px-4 text-orange-700 hover:text-black font-semibold"><Link to="/cart">Cart</Link></li>
-             <li className="px-4 text-orange-700 hover:text-black font-semibold"><Link to="/instamart">Instamart</Link></li>
+             <li className="px-4 text-orange-700 hover:text-black font-semibold">
+                <Link to="/cart">Cart <span className="bg-orange-200 rounded-md ">{cartItems.length}</span></Link></li>
+             <li className="px-6 text-orange-700 hover:text-black font-semibold"><Link to="/instamart">Instamart</Link></li>
             </ul>
            
            </div>
