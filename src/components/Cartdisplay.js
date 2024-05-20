@@ -1,4 +1,5 @@
 import { imgurl } from "../../contants";
+import { clearCart } from "../utils/cartslice";
 const Cartdisplay=({itemcards})=>{
     
  return(
@@ -6,7 +7,7 @@ const Cartdisplay=({itemcards})=>{
          {itemcards.map((i,index)=>
 
                 
-                <div className="m-5 flex ">
+                <div className="m-5 flex  ">
                 
                 <div className="text font-sans pl-5 mt-3 " >
                 <div className="name font-bold text-lg w-64 text-orange-600">{i.name}
@@ -16,11 +17,11 @@ const Cartdisplay=({itemcards})=>{
                 <p className="price pt-3 font-semibold w-44 text-orange-600">₹ {(i.price) ? ((i.price) /100) :((i.defaultPrice) /100)}</p>
                 </div>
                 <div className=" ">
-                <img className="menuimage ml-14 rounded-md  w-24  h-24 " src={imgurl+ i.imageId}/> 
+                <img className="menuimage ml-14 rounded-md  w-20  h-20 " src={imgurl+ i.imageId}/> 
                 <div className="mt-2">
-                    <div className=" w-20 ml-16 border rounded-md ">
-                <button className=" font-semibold m-2 " onClick={()=>increaseQ(item=i.info)}>-</button><span className="font-bold text-green-700 m-2">Q</span>
-                <button className=" font-semibold m-2 " onClick={()=>decreaseQ(item=i.info)}>+</button>
+                    <div className=" w-16 ml-16 border rounded-md ">
+                <button className=" font-semibold m-1 " onClick={()=>increaseQ(item=i.info)}>-</button><span className="font-bold text-green-700 m-2">Q</span>
+                <button className=" font-semibold m-1 " onClick={()=>decreaseQ(item=i.info)}>+</button>
 
                         
                     </div>
@@ -28,7 +29,7 @@ const Cartdisplay=({itemcards})=>{
                  
 
                 </div>
-      <button className="w-32 mt-44 m-3 h-8 rounded-sm bg-orange-400 font-semibold text-white" onClick={()=>clearCart()}>ClearCart</button>
+      {/* <button className="w-32 mt-44 m-3 h-8 rounded-sm bg-orange-400 font-semibold text-white" onClick={()=>clearCart()}>ClearCart</button> */}
 
                 </div>
                 
