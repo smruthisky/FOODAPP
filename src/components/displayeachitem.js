@@ -15,6 +15,7 @@ const DisplayMenu=({itemcards})=>{
     return(
         <>
          {itemcards.map((i,index)=>
+      
              <div className="menu ml-[120px] bg-white m-4 h-44 flex w-[800px] shadow-md rounded-lg" key={i.card.info.id}>
                 <div className="text font-sans pl-5 mt-3 " >
                 <div className="name font-bold text-lg text-orange-600">{i.card.info.name}

@@ -16,7 +16,7 @@ const Cart = () => {
    
         <div className="bg-white border m-4 w-[560px] h-96 overflow-y-auto ">
             <div className="flex-col ">
-                <Cartdisplay itemcards={cartItems} key={cartItems.id} />
+                <Cartdisplay itemcards={cartItems}  />
                 
             </div>
             

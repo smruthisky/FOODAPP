@@ -4,10 +4,10 @@ const Cartdisplay=({itemcards})=>{
     
  return(
     <>
-         {itemcards.map((i,index)=>
+         {itemcards.map((i)=>
 
                 
-                <div className="m-5 flex  ">
+                <div className="m-5 flex  " key={i.id}>
                 
                 <div className="text font-sans pl-5 mt-3 " >
                 <div className="name font-bold text-lg w-64 text-orange-600">{i.name}
