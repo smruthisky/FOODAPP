@@ -1,4 +1,4 @@
-import { render ,act,waitFor,screen} from "@testing-library/react";
+import { render ,waitFor, fireEvent} from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Body from "../body";
 import { Provider } from "react-redux";
@@ -38,15 +38,42 @@ global.fetch =jest.fn(()=>{
                     <Body />
                 </Provider>
             </StaticRouter>
-        );
-       
-     
-        
+        );                        
+
+
         await waitFor(()=>expect(body.getByTestId("search-btn")));
        const reslist=body.getByTestId("res-list");
        expect(reslist.children.length).toBe(20);
     }   
-     
-    )
+    );
+
+    test("to check searchbar is filtering out resturants ",  async () => {
+    
+        const body= render(
+            <StaticRouter>
+                <Provider store={store}>
+                    <Body />
+                </Provider>
+            </StaticRouter>
+        );                        
+
+
+        await waitFor(()=>expect(body.getByTestId("search-btn")));
+
+        const searchbar=body.getByTestId("searchbar");
+
+        fireEvent.change(searchbar,{
+            target:{
+                value: "Pizza",
+            },
+
+        });
+        const searchbtn=body.getByTestId("search-btn");
+        fireEvent.click(searchbtn);
+
+       const reslist=body.getByTestId("res-list");
+       expect(reslist.children.length).toBe(2);
+    }   
+    );
 
 

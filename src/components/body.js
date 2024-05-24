@@ -67,7 +67,7 @@ import {userContext} from "../utils/useContext.js";
         <div className="body h-[1500px] mt-2 bg-gray-100">
         <div className="search-container"> 
             
-            <input type="text"  className="search-input ml-40 pl-2 text-gray-700 bg-slate-200 rounded-lg h-12 w-52" placeholder="Type something to search.." 
+            <input type="text" data-testid="searchbar" className="search-input ml-40 pl-2 text-gray-700 bg-slate-200 rounded-lg h-12 w-52" placeholder="Type something to search.." 
            value={searchInput}
             onChange={(e)=>{
            setSearchInput(e.target.value);
