@@ -31,7 +31,7 @@ test("check online status",()=>{
     );
 //  console.log(header);
  const onlineStatus=header.getByTestId("online-status");
- console.log(onlineStatus.innerHTML);
+//  console.log(onlineStatus.innerHTML);
  expect(onlineStatus.innerHTML).toBe("Online");
 
 
@@ -47,7 +47,7 @@ test("check initial cart is 0",()=>{
     );
 //  console.log(header);
  const initialcart=header.getByTestId("initialcartvalue");
- console.log(initialcart.textContent);
+//  console.log(initialcart.textContent);
  expect(initialcart.textContent).toBe("Cart 0");
 
 
