@@ -33,7 +33,7 @@ const Header= ()=>
              <li className="px-4 text-orange-700 hover:text-black font-semibold" ><Link to="/about">About us</Link></li>
              <li className="px-4  text-orange-700 hover:text-black font-semibold"><Link to="/contact">Contact</Link></li>
              <li className="px-4 text-orange-700 hover:text-black font-semibold">
-                <Link to="/cart" data-testid="initialcartvalue">Cart <span className="bg-orange-200 rounded-md ">{cartItems.length}</span></Link></li>
+                <Link to="/cart" data-testid="initialcartvalue">Cart <span data-testid="cartitems" className="bg-orange-200 rounded-md ">{cartItems.length}</span></Link></li>
              <li className="px-6 text-orange-700 hover:text-black font-semibold"><Link to="/instamart">Instamart</Link></li>
             </ul>
            

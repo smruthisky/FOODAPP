@@ -6,7 +6,7 @@ const Fooditems = ({ items }) => {
     return (
       <>
         {items.map((item, index) => (
-          <DisplayMenu key={index} itemcards={item.itemCards}/>
+          <DisplayMenu key={index} itemcards={item?.itemCards}/>
           
         ))}
       </>
