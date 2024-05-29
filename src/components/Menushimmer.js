@@ -2,10 +2,12 @@
 const Menushimmer=()=>{
 
     return (
-        <div className="box">
+        <div data-testid="shimmer"  className="box">
+            
             <p className="itemname"></p>
             <div className="image"></div>
-        </div>
+            </div>
+    
     )
 };
 export default Menushimmer;
