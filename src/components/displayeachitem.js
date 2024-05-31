@@ -1,14 +1,19 @@
 import { useDispatch } from "react-redux";
 import { imgurl } from "../../contants";
 import { addItem } from "../utils/cartslice";
-
-
+import Popup from "reactjs-popup";
+import { useState } from "react";
 const DisplayMenu=({itemcards})=>{
     console.log(itemcards);
     // return null;
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
     const dispatch=useDispatch();
     const handleadditem=(item)=>{
         dispatch(addItem(item));
+        setIsPopupOpen(true);
+        setTimeout(() => {
+            setIsPopupOpen(false);
+        }, 2000); 
         
     };
     
@@ -16,7 +21,7 @@ const DisplayMenu=({itemcards})=>{
         <div >
          {itemcards.map((i,index)=>
       
-             <div data-testid="menulist"  className="menu ml-[120px] bg-white m-4 h-44 flex w-[800px] shadow-md rounded-lg" key={i?.card?.info?.id}>
+             <div data-testid="menulist"  className="menu ml-[100px] bg-white m-4 h-44 flex w-[800px] shadow-md rounded-lg" key={i?.card?.info?.id}>
                 <div className="text font-sans pl-5 mt-3 " >
                 <div className="name font-bold text-lg text-orange-600">{i?.card?.info?.name}
                  
@@ -30,7 +35,14 @@ const DisplayMenu=({itemcards})=>{
                     </div>
                 
                 <div className="mt-4">
-                <button data-testid="addbtn" className="bg-green-300 w-20 ml-[40px]  rounded-md  " onClick={()=>handleadditem(item=i?.card?.info)}>Add</button>
+                <Popup open={isPopupOpen} onClose={() => setIsPopupOpen(false)} position=" center">
+                                <div className="p-2 bg-green-500 shadow-sm rounded-md">
+                                    <p className="text-white">Item added to the cart!</p>
+                                </div>
+                            </Popup>
+                <button data-testid="addbtn" className="bg-green-300 w-20 ml-[40px]  rounded-md  "
+                     onClick={()=>handleadditem(item=i?.card?.info)}>
+                        Add</button>
                 </div>
                  
 
