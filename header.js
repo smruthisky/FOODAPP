@@ -27,7 +27,7 @@ const Header= ()=>
         <div className="header flex ml-9">
           <Title/>
           <h4 className="text-sm   pt-4 ml-7 font-bold text-orange-700"> {user.name}</h4>
-           <div className=" pt-4 ml-96 justify-center ">
+           <div className=" pt-4 ml-80 justify-center ">
             <ul className="nav flex space-x-3 ">
              <li className="px-4 text-orange-700 hover:text-black font-semibold"><Link to="/">Home</Link></li>
              <li className="px-4 text-orange-700 hover:text-black font-semibold" ><Link to="/about">About us</Link></li>
