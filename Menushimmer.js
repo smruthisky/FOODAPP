@@ -3,7 +3,7 @@ const Menushimmer=()=>{
 
     return (
         <div >
-        <div data-testid="shimmer"  className=" box border ml-[430px] mt-4 bg-white w-[700px] h-36 shadow-md rounded-lg">
+        <div data-testid="shimmer"  className=" box border ml-[60px] mt-4 bg-white w-[700px] h-36 shadow-md rounded-lg">
             <div className="flex">
             <div className="description w-[500px] mt-2">
             <div className=" itemname pl-5 mt-3 ml-3 bg-slate-300 h-8 w-[300px]"></div>

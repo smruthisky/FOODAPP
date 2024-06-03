@@ -15,7 +15,7 @@ const Resturantmenu=()=>{
       
    
     return(!Resinfo)?(
-        <div className="mt-4 bg-slate-100">
+        <div className="mt-4 bg-slate-100 pt-20">
         {Array(20).fill(null).map((e, index)=>(
             <Menushimmer key={index}/>
            ))} 
@@ -24,12 +24,12 @@ const Resturantmenu=()=>{
         <>
        
         
-        <div data-testid="menu"className="bg-slate-100" >
+        <div data-testid="menu"className="bg-slate-100 " >
           
-        <div className="flex   ">
+        <div className="flex pt-20  ">
         
             {/* <h1>Resturant id:{Resinfo.id}</h1> */}
-            <div className="resinfo mt-5  ml-10 border rounded-md w-72 h-52 bg-white">
+            <div className="resinfo mt-5  ml-10 border rounded-md w-72 h-60  bg-white fixed right-0">
             
             <div className="resdata w-52  m-5 ">
             <h1 className="resname font-sans font-semibold text-xl text-orange-600">{Resinfo.name}</h1>
