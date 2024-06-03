@@ -14,7 +14,7 @@ const Cart = () => {
     return (
       <>
    
-        <div className="bg-white border m-4 w-[560px] h-96 overflow-y-auto ">
+        <div className="bg-white border m-4 w-[560px] h-96 overflow-y-auto pt-20">
             <div className="flex-col ">
                 <Cartdisplay itemcards={cartItems}  />
                 

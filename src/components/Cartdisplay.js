@@ -1,7 +1,35 @@
+import { useState } from "react";
 import { imgurl } from "../../contants";
-import { clearCart } from "../utils/cartslice";
+
 const Cartdisplay=({itemcards})=>{
-    
+    const initialQuantities = {};
+    itemcards.forEach(item => {
+        initialQuantities[item.id] = item.quantity || 1;
+    });
+
+    const [quantities, setQuantities] = useState(initialQuantities);
+
+    // Function to increase quantity
+    const increaseQ = (item) => {
+        const newQuantities = { ...quantities };
+        newQuantities[item.id] = (quantities[item.id] || 1) + 1;
+        setQuantities(newQuantities);
+    };
+
+    // Function to decrease quantity
+    const decreaseQ = (item) => {
+        const newQuantities = { ...quantities };
+        newQuantities[item.id] = Math.max(1, (quantities[item.id] || 1) - 1);
+        setQuantities(newQuantities);
+    };
+
+    // Calculate total price
+    const calculateTotalPrice = () => {
+        return itemcards.reduce((total, item) => {
+            const price = item.price ? item.price / 100 : item.defaultPrice / 100;
+            return total + (price * quantities[item.id]);
+        }, 0).toFixed(2);
+    };
  return(
     <>
          {itemcards.map((i)=>
@@ -20,8 +48,9 @@ const Cartdisplay=({itemcards})=>{
                 <img className="menuimage ml-14 rounded-md  w-20  h-20 " src={imgurl+ i.imageId}/> 
                 <div className="mt-2">
                     <div className=" w-16 ml-16 border rounded-md ">
-                <button className=" font-semibold m-1 " onClick={()=>increaseQ(item=i.info)}>-</button><span className="font-bold text-green-700 m-2">Q</span>
-                <button className=" font-semibold m-1 " onClick={()=>decreaseQ(item=i.info)}>+</button>
+                        
+                <button className=" font-semibold m-1 " onClick={()=>decreaseQ(i)}>-</button><span className="font-bold text-green-700 m-2">{quantities[i.id]}</span>
+                <button className=" font-semibold m-1 " onClick={()=>increaseQ(i)}>+</button>
 
                         
                     </div>
@@ -30,8 +59,9 @@ const Cartdisplay=({itemcards})=>{
 
                 </div>
       {/* <button className="w-32 mt-44 m-3 h-8 rounded-sm bg-orange-400 font-semibold text-white" onClick={()=>clearCart()}>ClearCart</button> */}
-
+      
                 </div>
+               
                 
                 // </div>
                 
@@ -41,7 +71,9 @@ const Cartdisplay=({itemcards})=>{
          
          
          }
-         
+          <div className="m-5 text-right font-bold text-lg">
+                Total Price: ₹ {calculateTotalPrice()}
+            </div>
         </>
  )
 };

@@ -81,11 +81,13 @@ const AppLayout=()=>{
 
         
         <Header/>
+ 
         <Outlet/>
         
         
-        <Footer/>
+        <Footer />
         </ThemeContext.Provider>
+     
         </userContext.Provider>
         </Provider>
 

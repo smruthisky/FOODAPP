@@ -24,10 +24,10 @@ const Header= ()=>
     const isOnline=useOnline();
     return (
 
-        <div className="header flex ml-9">
+        <div className="header flex  bg-white h-20 fixed top-0 w-[1500px]">
           <Title/>
-          <h4 className="text-sm   pt-4 ml-7 font-bold text-orange-700"> {user.name}</h4>
-           <div className=" pt-4 ml-80 justify-center ">
+          <h4 className="text-sm mt-2  pt-4 ml-7 font-bold text-orange-700"> {user.name}</h4>
+           <div className=" pt-4 ml-80 justify-center mt-1 ">
             <ul className="nav flex space-x-3 ">
              <li className="px-4 text-orange-700 hover:text-black font-semibold"><Link to="/">Home</Link></li>
              <li className="px-4 text-orange-700 hover:text-black font-semibold" ><Link to="/about">About us</Link></li>
@@ -41,9 +41,9 @@ const Header= ()=>
      
            {isLoggedIn ?(<button onClick={()=>setLoggedIn(false)}className="px-2 ml-24 text-orange-700  bg-orange-200 rounded-md h-9 mt-3 font-semibold hover:text-black">Logout</button>):
            
-           (<button onClick={()=>setLoggedIn(true)} className="px-2 ml-24 text-orange-700  bg-orange-200 rounded-md h-9 mt-3 font-semibold hover:text-black">Login</button>)}
+           (<button onClick={()=>setLoggedIn(true)} className="px-2 ml-14 text-orange-700  bg-orange-200 rounded-md h-9 mt-4 font-semibold hover:text-black">Login</button>)}
             
-            <h1 data-testid="online-status">{isOnline ? "Online": "Offline"}</h1>
+            <h1 data-testid="online-status" className="ml-3 mt-4">{isOnline ? "Online": "Offline"} </h1>
            
           
         </div>
