@@ -13,7 +13,7 @@ const ProfileFunctionalComp=(props)=>{
     })
    return(
     <>
-      <h1>Using functional component</h1>
+      <h1 className="pt-16">Using functional component</h1>
       <h2>name:{props.name}</h2>
       <h3>count:{count}</h3>
       <button onClick={()=>{

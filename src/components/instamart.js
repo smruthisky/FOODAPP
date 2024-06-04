@@ -1,10 +1,10 @@
 import { useState,useContext } from "react";
 import {userContext} from "../utils/useContext";
-import Skeleton from "./shimmerui";
+
 const Section=({title,description,isVisible,setVisible})=>{
     
     return(
-        <div className="m-5 border border-spacing-1 pl-2">
+        <div className="m-5 border border-spacing-1 pl-2 ">
 
             <p className="font-semibold" >{title}</p>
             {
@@ -42,7 +42,7 @@ const Instamart=()=>{
     const [SectionVisible , setSectionVisible]=useState();
     const {user,setUser}=useContext(userContext);
     return(
-        <div>
+        <div className="pt-16">
            {/* <Skeleton/> */}
             <h1 className="font-bold m-5 text-xl">Instamart</h1>
             <Section title={"About Instamart"} 

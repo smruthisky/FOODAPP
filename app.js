@@ -77,9 +77,9 @@ const AppLayout=()=>{
             user:user,
             setUser:setUser,
         }} >
-        <ThemeContext.Provider value={theme}>
+            {/* theme context is usercreated context using usecontext hook  */}
+        <ThemeContext.Provider value={theme}> 
 
-        
         <Header/>
  
         <Outlet/>

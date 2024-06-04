@@ -1,6 +1,6 @@
 const Contact=()=>{
    return(
-    <p>This is where you can contact us!</p>
+    <p className="pt-24">This is where you can contact us!</p>
    );
 };
 export default Contact;
